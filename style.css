@@ -1,0 +1,152 @@
+*{
+ margin:0;
+ padding:0;
+ box-sizing:border-box;
+ font-family:'Poppins',sans-serif;
+ text-align:center;
+}
+
+body{
+ background: radial-gradient(circle at top,#120018,#000);
+ color:white;
+ overflow-x:hidden;
+}
+
+.hidden{display:none;}
+
+#intro{ margin-top:180px; }
+
+.glow{
+ font-size:48px;
+ color:#ff7ac6;
+ text-shadow:0 0 30px #ff2f92;
+ animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+ from{text-shadow:0 0 10px pink;}
+ to{text-shadow:0 0 40px red;}
+}
+
+/* envelope */
+.envelope{
+ width:230px;
+ height:150px;
+ background:linear-gradient(135deg,#ff4da6,#ff99cc);
+ margin:180px auto 20px;
+ border-radius:12px;
+ cursor:pointer;
+ box-shadow:0 0 30px pink;
+ position:relative;
+}
+.envelope:before{
+ content:"";
+ position:absolute;
+ width:100%;
+ height:100%;
+ background:#ff80bf;
+ clip-path:polygon(0 0,50% 60%,100% 0);
+}
+
+/* letter */
+.letter-card{
+ width:70%;
+ margin:60px auto;
+ padding:40px;
+ background:rgba(255,255,255,0.08);
+ backdrop-filter:blur(15px);
+ border-radius:20px;
+ box-shadow:0 0 30px rgba(255,0,150,0.4);
+}
+
+button{
+ padding:12px 25px;
+ border:none;
+ border-radius:25px;
+ background:#ff2f92;
+ color:white;
+ margin:30px;
+ cursor:pointer;
+}
+
+/* timeline */
+.timeline{
+ width:90%;
+ max-width:900px;
+ margin:60px auto;
+ position:relative;
+}
+
+.timeline::after{
+ content:"";
+ position:absolute;
+ width:4px;
+ background:pink;
+ top:0;
+ bottom:0;
+ left:50%;
+ margin-left:-2px;
+ box-shadow:0 0 15px pink;
+}
+
+.memory{
+ padding:20px 40px;
+ position:relative;
+ width:50%;
+ opacity:0;
+ transform:translateY(40px);
+ transition:0.8s;
+}
+
+.memory.show{
+ opacity:1;
+ transform:translateY(0);
+}
+
+.memory img{
+ width:100%;
+ border-radius:15px;
+ box-shadow:0 0 20px pink;
+}
+
+.memory .text{
+ background:rgba(255,255,255,0.08);
+ padding:15px;
+ border-radius:15px;
+ margin-top:10px;
+}
+
+.left{left:0;}
+.right{left:50%;}
+
+.final-text{
+ margin-top:200px;
+ font-size:60px;
+ color:gold;
+ text-shadow:0 0 40px gold;
+}
+
+/* hearts */
+.heart{
+ position:fixed;
+ bottom:-10px;
+ font-size:22px;
+ animation:floatUp 6s linear infinite;
+}
+@keyframes floatUp{
+ 0%{transform:translateY(0);opacity:1;}
+ 100%{transform:translateY(-100vh);opacity:0;}
+}
+
+canvas{
+ position:fixed;
+ top:0;
+ left:0;
+ pointer-events:none;
+}
+
+/* mobile */
+@media(max-width:768px){
+ .memory{width:100%; left:0;}
+ .timeline::after{left:20px;}
+}
